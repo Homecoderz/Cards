@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { UploadsComponent } from './uploads/uploads.component';
 import { FileUploadService } from './services/file-upload.service';
+import { GenerateCardsComponent } from './generate-cards/generate-cards.component';
 
 const routes: Routes = [
     { path: '', component: UploadsComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    UploadsComponent
+    UploadsComponent,
+    GenerateCardsComponent
   ],
   imports: [
     BrowserModule,
