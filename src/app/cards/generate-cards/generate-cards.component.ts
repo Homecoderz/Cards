@@ -12,4 +12,8 @@ export class GenerateCardsComponent implements OnInit {
   ngOnInit() {
   }
 
+  generate(codeEcole){
+
+  }
+
 }

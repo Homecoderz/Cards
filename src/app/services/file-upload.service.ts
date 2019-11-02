@@ -9,7 +9,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export class FileUploadService {
 
-    UploadForm: FormGroup;
+    UploadForm: FormGroup = this.fb.group({
+            ecoleDren: ['', Validators.required],
+            ecoleInspection: ['', Validators.required],
+            iepLogo: ['', Validators.required],
+            anneeScolaire: ['', Validators.required],
+            ecoleCode: ['', Validators.required],
+            ecoleNom: ['', Validators.required],
+            excelFile: ['', Validators.required]
+        });
+
     public ecoles;
     readonly apiUrl = 'http://localhost:3000/api';
 
@@ -22,22 +31,20 @@ export class FileUploadService {
     }
 
     refresh() {
-        this.UploadForm = this.fb.group({
-            ecoleDren: ['', Validators.required],
-            ecoleInspection: ['', Validators.required],
-            iepLogo: ['', Validators.required],
-            anneeScolaire: ['', Validators.required],
-            ecoleCode: ['', Validators.required],
-            ecoleNom: ['', Validators.required],
-            excelFile: ['', Validators.required]
+        this.UploadForm.setValue({
+            ecoleDren: '',
+            ecoleInspection: '',
+            iepLogo: '',
+            anneeScolaire: '',
+            ecoleNom: '',
+            ecoleCode: '',
+            excelFile: '',
         });
     }
 
     refreshList() {
         const url = this.apiUrl + '/ecoles';
-        this.refresh();
-        this.UploadForm.clearValidators();
-        return this.http.get(url, {}).toPromise().then(result => (this.ecoles = result));
+        return this.http.get(url).toPromise().then(result => (this.ecoles = result));
     }
 
     deleteCards(ecoleId) {
@@ -46,7 +53,7 @@ export class FileUploadService {
         });
     }
 
-    generateCards(){
+    generateCards() {
 
     }
 
