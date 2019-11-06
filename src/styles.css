@@ -1,0 +1,70 @@
+.myfont{
+    font-family: "Grand Hotel",
+    "Kingthings Gothique",
+    "Windsong",
+    sans-serif;
+}
+.my-size {
+    font-size: 20px;
+}
+.row {
+    margin-bottom: 10px;
+}
+
+input {
+    border-radius: none;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+input[type="text"] {
+    font-family: Candara;
+    font-weight: bold;
+    height: 45px;
+    border-radius: 0;
+}
+.form-group {
+    margin-bottom: 0;
+}
+.error-label {
+    padding-left: 4px;;
+    font-size: 12px;
+    font-weight: bold;
+}
+.heading {
+    margin-top: 4px;
+}
+.heading h1 {
+    font-size: 100px;
+}
+li {
+    font-family: Aaargh;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.list-group-item {
+    height: 40px;
+    border: none;
+    border-radius: 0;
+}
+.separator {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.actions a {
+    margin-left: 10px;
+    font-family: "Grand Hotel";
+    text-transform: capitalize;
+    font-size: 16px;
+}
+.border-rad-0 {
+    border-radius: 0;
+}
+.badge-primary {
+    color: #fff;
+    background-color: #fff;
+}
+
+.badge-perso {
+    background-color: transparent;
+}

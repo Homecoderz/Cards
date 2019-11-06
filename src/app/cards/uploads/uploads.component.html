@@ -1,0 +1,158 @@
+<div class="container  ">
+    <div class="row justify-content-center">
+        <div class="col-md-2 justify-content-center" style="margin-top: 10px;">
+            <img class="justify-content-center col-md-12" src="../assets/img/cards_gen_02.png">
+        </div>
+    </div>
+    <div class="row heading justify-content-center">
+        <h1 class="myfont block">Générateur de Cartes</h1>
+    </div>
+
+    <label class="row justify-content-center">
+        <label class="col-md-12 col-sm-12">
+            <form [formGroup]="fileUploadService.UploadForm">
+
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-sm-4">
+                        <div class="form-group">
+                            <input type="text" formControlName="ecoleDren" class="form-control" required
+                                placeholder="DREN">
+                            <label class="text-danger error-label"
+                                *ngIf="fileUploadService.UploadForm.get('ecoleDren').touched &&
+                                fileUploadService.UploadForm.get('ecoleDren').errors?.required">Veuillez
+                                renseigner la
+                                DREN</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-sm-4">
+                        <div class="form-group">
+                            <input type="text" formControlName="ecoleInspection" class="form-control" required
+                                placeholder="Inspection">
+                            <label class="text-danger error-label"
+                                *ngIf="fileUploadService.UploadForm.get('ecoleInspection').touched &&
+                                fileUploadService.UploadForm.get('ecoleInspection').errors?.required">Veuillez
+                                renseigner
+                                l'inspection</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-sm-4">
+                        <div class="form-group">
+                            <label class="col-md-4 col-sm-4" style="font-size: 13px; font-weight: bold;">LOGO
+                                INSPECTION</label>
+                            <input type="file" name="iepLogo"
+                                (change)="onSelectedLogoFile($event)" class="col-md-8 col-sm-8 myfont my-size" required>
+                            <label class="text-danger error-label" *ngIf="fileUploadService.UploadForm.get('iepLogo').touched &&
+                                                fileUploadService.UploadForm.get('iepLogo').errors?.required">Veuillez
+                                choisir un logo
+                                </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="form-group col-md-5 col-sm-4">
+                        <input type="text" formControlName="anneeScolaire"  required class="form-control" placeholder="Année Scolaire (2019-2020)" value="2019-2020"/>
+                        <label class="text-danger error-label"
+                            *ngIf="fileUploadService.UploadForm.get('anneeScolaire').touched &&
+                                fileUploadService.UploadForm.get('anneeScolaire').errors?.required">Veuillez renseigner
+                            l'année scolaire</label>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-sm-4">
+                        <div class="form-group">
+                            <input type="text" formControlName="ecoleNom" required class="form-control"
+                                placeholder="Nom de l'Ecole">
+                            <label class="text-danger error-label"
+                                *ngIf="fileUploadService.UploadForm.get('ecoleNom').touched &&
+                                fileUploadService.UploadForm.get('ecoleNom').errors?.required">Veuillez renseigner le
+                                nom de l'école</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-sm-4">
+                        <div class="form-group">
+                            <input type="text" formControlName="ecoleCode" required class="form-control" placeholder="Code DSPS">
+                            <label class="text-danger error-label"
+                                *ngIf="fileUploadService.UploadForm.get('ecoleCode').touched &&
+                                fileUploadService.UploadForm.get('ecoleCode').errors?.required">Veuillez renseigner le code de
+                                l'école</label>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="row justify-content-center">
+                    <label class="form-group col-md-5 col-sm-2" style="font-size: 13px; font-weight: bold;">
+                        <label for="iepLogo" class="col-md-4 col-sm-4">FICHIER ELEVES</label>
+                        <input type="file" name="excelFile" class="col-md-8 col-sm-8 myfont my-size" required
+                            (change)="onSelectedExcelFile($event)" />
+                        <label class="text-danger error-label"
+                            *ngIf="fileUploadService.UploadForm.get('excelFile').touched &&
+                                fileUploadService.UploadForm.get('excelFile').errors?.required">Veuillez choisir un
+                            fichier excel</label>
+                    </label>
+                </label>
+
+                <div class="row justify-content-center">
+                    <div class="form-group col-md-5 col-sm-4">
+                        <button class="fileUploadService.UploadForm.invalid" (click)="onSubmit()"
+                            style="width: 100%; font-size: 35px" type="submit"
+                            class="btn btn-primary btn-lg myfont">Enregistrer</button>
+                    </div>
+                </div>
+
+            </form>
+        </label>
+
+        <hr class="separator">
+    </label>
+
+    <div class="row justify-content-center">
+        <h1 style="font-size: 35px;" class="btn btn-info col-12 btn-sm border-rad-0 myfont">Liste des écoles</h1>
+        <div class="col-md-12 col-sm-12">
+
+            <ul *ngIf="fileUploadService.ecoles" class="list-group" style="padding: 2px;">
+
+                <li *ngFor="let ecole of fileUploadService.ecoles let i = index"  class=" list-group-item d-flex justify-content-between align-items-left" style="font-size: 14px; margin: 2px;">
+                    <span class="col-md-2 justify-content-start">{{ ecole.anneeScolaire }}</span>
+                    <span class="col-md-2 justify-content-start">{{ ecole.ecoleDren | uppercase }}</span>
+                    <span class="col-md-2 justify-content-start">IEPP {{ ecole.ecoleInspection | uppercase }}</span>
+                    <span class="col-md-3 justify-content-start">{{ ecole.ecoleNom | uppercase}}</span>
+                    <span routerLinkActive="active" class="col-md-3 badge badge-primary badge-pill justify-content-end" style="background-color: none;">
+                        <a routerLink="cards" class="btn btn-success btn-sm border-rad-0" style="">Generer
+                            <span class="badge badge-primary badge-pill badge-perso" style="padding-left: 2px; padding-right: 2px; margin-top: -2px; font-size:
+                                16px; font-weight: normal;">{{ fileUploadService.ecoles[i].eleves.length }}
+                                </span> Cartes
+                        </a>
+                        <a (click)="onDelete(ecole.ecoleId)"
+                            class="btn btn-danger btn-sm border-rad-0">Supprimer</a>
+                    </span>
+                </li>
+            </ul>
+            <p class="justify-content-center" *ngIf="!fileUploadService.ecoles"> Aucune donnée</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
