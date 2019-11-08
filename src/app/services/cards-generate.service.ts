@@ -7,15 +7,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CardsGenerateService {
 
+    eleves
+
   constructor(private appService: AppService, private http: HttpClient) { }
 
-  generateCards() {
-
+  getEleves(codeEcole) {
+    return this.http.get(this.appService.apiUrl + '/cards/generate/' + codeEcole).toPromise().then(result => ( this.eleves = result ));
   }
 
   deleteCards(ecoleId) {
     const url = this.appService.apiUrl + '/cards/' + ecoleId;
     return this.http.delete(url, {
     });
-}
+  }
 }

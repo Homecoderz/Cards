@@ -2,6 +2,8 @@ import { AppService } from './app.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CardsGenerateService } from 'src/app/services/cards-generate.service';
+
 
 
 @Injectable({
@@ -22,7 +24,7 @@ export class FileUploadService {
 
     public ecoles;
 
-  constructor(private appService: AppService, private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private appService: AppService, private cardsGenerateService: CardsGenerateService, private http: HttpClient, private fb: FormBuilder) { }
 
     upload(formData) {
         return this.http.post(this.appService.apiUrl + '/upload', formData, {
@@ -41,6 +43,7 @@ export class FileUploadService {
             excelFile: '',
         });
     }
+
 
     refreshList() {
         const url = this.appService.apiUrl + '/ecoles';

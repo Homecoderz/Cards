@@ -1,6 +1,8 @@
 import { AppService } from './../../services/app.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FileUploadService } from 'src/app/services/file-upload.service';
+import { CardsGenerateService } from 'src/app/services/cards-generate.service';
 
 @Component({
   selector: 'app-generate-cards',
@@ -9,13 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenerateCardsComponent implements OnInit {
 
-  constructor(private appService: AppService, private http: HttpClient) { }
+  constructor(public cardsGenerateService: CardsGenerateService,  public fileUploadService: FileUploadService, private http: HttpClient) { }
 
   ngOnInit() {
   }
 
-  generate(codeEcole){
-    this.http.get(this.appService.apiUrl, codeEcole);
-  }
+  
 
 }

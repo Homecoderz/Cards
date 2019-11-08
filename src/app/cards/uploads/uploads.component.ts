@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FileUploadService } from './../../services/file-upload.service';
 import { CardsGenerateService } from './../../services/cards-generate.service';
@@ -12,7 +13,7 @@ import { CardsGenerateService } from './../../services/cards-generate.service';
 export class UploadsComponent implements OnInit {
 
 
-  constructor(public fileUploadService: FileUploadService, private cardsService: CardsGenerateService,  private toastr: ToastrService) { }
+  constructor(public fileUploadService: FileUploadService, private router: Router, private cardsGenerateService: CardsGenerateService, private cardsService: CardsGenerateService,  private toastr: ToastrService) { }
 
     ngOnInit() {
         this.fileUploadService.refreshList();
@@ -88,8 +89,9 @@ export class UploadsComponent implements OnInit {
         });
     }
 
-    onGenerate(ecoleId) {
-        console.log('Cartes générées... ' + ecoleId);
-    }
+    generate(codeEcole) {
+        this.cardsGenerateService.getEleves(codeEcole);
+        this.router.navigate(['/cards']);
+      }
 
 }

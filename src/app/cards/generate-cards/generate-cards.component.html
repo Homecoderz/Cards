@@ -1,1 +1,42 @@
-<p>generate-cards works!</p>
+<div class="main">
+    <div class="heading">
+        <h3 class="header">Cartes Générées</h3>
+        <p><a href="" class="header-control btn btn-outline-info">Imprimer Les Cartes</a></p>
+    </div>
+
+    <div class="cartes">
+        <div *ngFor="let eleve of cardsGenerateService.eleves let i = index" class="carte">
+            <div class="carte-header">
+                <span class="logo"><img src="/assets/img/logo-iep.png" alt="" style="width: 100px; height: 80px;"></span>
+                <div class="carte-heading">
+                    <div class="title">
+                        <span class="title-h1">CARTE D'IDENTITE SCOLAIRE</span>
+                        <span class="title-h2">INSPECTION DE L'ENSEIGNEMENT PRESCOLAIRE ET PRIMAIRE</span>
+                        <span class="title-h3">IEPP DIAWALA</span>
+                        <span class="title-h4">ANNEE SCOLAIRE 2019 - 2020</span>
+                    </div>
+                </div>
+                <span class="armoirie"><img src="/assets/img/armoirie2.jpg" alt="" style="width: 100px; height: 80px;"></span>
+            </div>
+            <hr class="separator">
+            <div class="carte-body">
+                <div class="carte-info">
+                    <span>Ecole : {{ eleve.ecole.ecoleNom | uppercase }}</span>
+                    <span>Matricule : <strong class="matricule">{{ eleve.matricule | uppercase }}</strong></span>
+                    <span>Nom : {{ eleve.nom | uppercase }}</span>
+                    <span>Prénoms : {{ eleve.prenoms | uppercase}}</span>
+                    <span>Né(e) le : {{ eleve.dateNaissance | date : 'dd/MM/y'}} à {{ eleve.lieuNaissance | uppercase}}</span>
+                    <div class="group-info">
+                        <span class="pad">Sexe : {{ eleve.genre | uppercase}}</span>
+                        <span>Classe : {{ eleve.niveau | uppercase }}</span>
+                    </div>
+                    <i>Certifie que cet elève est dans mon etablissement</i>
+                </div>
+                <div class="carte-photo">
+                    PHOTO
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

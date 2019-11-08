@@ -1,0 +1,163 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.main {
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 1200px;
+}
+.heading {
+    width: 100%;
+}
+.heading h3 {
+    display: inline-block;
+    width: 60%;
+    float: left;
+}
+.heading p {
+    display: inline-block;
+    width: 40%;
+    float: right;
+}
+.heading p a {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.cartes {
+    width: 1200px;
+    clear: both;
+    margin-top: 20px;
+
+}
+.carte {
+    width: 600px;
+    float: left;
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #2196f3;
+
+}
+.carte-header {
+    display: inline-block;
+    width: 600px;
+    padding: 5px;
+}
+.logo, .armoirie {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    top: 0px;
+}
+.logo {
+    float: left;
+}
+.armoirie {
+    float: right;
+}
+.carte-heading {
+    display: inline-block;
+    margin: -10px;
+    padding: -5px;
+    width: 380px;
+    height: 100px;
+}
+.logo img, .armoirie img {
+
+}
+.title {
+    /*width: 100%px;*/
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.title-h1, .title-h2, .title-h3, .title-h4, .title-h5 {
+    width: 100%px;
+    margin: 22px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    line-height: 0px;
+    display: block;
+}
+.title-h1 {
+    margin-bottom: -5px;
+    font-family: Bebas;
+    color: #303f9f;
+    font-size: 35px;
+}
+.title-h2 {
+    font-family: Bebas;
+    line-height: 15px;
+    font-size: 20px;
+}
+.title-h3 {
+    font-family: 'Fira Sans';
+    font-size: 22px;
+    color: #4db6ac;
+    margin: -7px;
+    padding: 0;
+}
+.title-h4 {
+    margin: 0;
+    margin-top: 22px;
+    font-family: Rubik;
+    color: #ff5252;
+    font-weight: bold;
+}
+.separator {
+    width: 580px;
+    height: 3px;
+    background-color:#ffc107;
+    margin: 5px;
+    margin-top: 0;
+}
+.carte {
+    margin-bottom: 10px;
+}
+.carte-body {
+    /*background-image: url("src\assets\img\logo-ready.png");*/
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-color: transparent;
+    /*opacity: 0.6;*/
+}
+.carte-info {
+    width: 60%;
+    display: inline-block;
+    padding: 10px;
+    opacity: 1;
+}
+.carte-info span {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 26px;
+    z-index: 100;
+}
+.carte-info i {
+    padding-top: 25px;
+    font-size: 12px;
+}
+.carte-info .matricule {
+    color: blue;
+}
+.carte-photo {
+    width: 25%;
+    height: 150px;
+    float: right;
+    margin-right: 10px;
+    border: 1px solid black;
+    /*background-color: red; */
+    display: inline-block;
+}
+.group-info span {
+    display: inline-block;
+}
+.group-info .pad {
+    margin-right: 25px;
+}
+
+

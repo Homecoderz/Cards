@@ -127,8 +127,8 @@
                     <span class="col-md-2 justify-content-start">{{ ecole.ecoleDren | uppercase }}</span>
                     <span class="col-md-2 justify-content-start">IEPP {{ ecole.ecoleInspection | uppercase }}</span>
                     <span class="col-md-3 justify-content-start">{{ ecole.ecoleNom | uppercase}}</span>
-                    <span routerLinkActive="active" class="col-md-3 badge badge-primary badge-pill justify-content-end" style="background-color: none;">
-                        <a routerLink="cards" class="btn btn-success btn-sm border-rad-0" style="">Generer
+                    <span class="col-md-3 badge badge-primary badge-pill justify-content-end" style="background-color: none;">
+                        <a (click)="generate(ecole.ecoleId )" class="btn btn-success btn-sm border-rad-0" style="">Generer
                             <span class="badge badge-primary badge-pill badge-perso" style="padding-left: 2px; padding-right: 2px; margin-top: -2px; font-size:
                                 16px; font-weight: normal;">{{ fileUploadService.ecoles[i].eleves.length }}
                                 </span> Cartes
